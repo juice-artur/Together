@@ -14,7 +14,11 @@ qt_add_executable(appTogether
 qt_add_qml_module(appTogether
     URI Together
     VERSION 1.0
-    QML_FILES main.qml 
+    QML_FILES main.qml
+    RESOURCES android/AndroidManifest.xml android/build.gradle android/res/values/libs.xml android/res/xml/qtprovider_paths.xml android/gradle/wrapper/gradle-wrapper.jar android/gradle/wrapper/gradle-wrapper.properties android/gradle.properties android/gradlew android/gradlew.bat
+    RESOURCES android/AndroidManifest.xml
+    RESOURCES android/AndroidManifest.xml
+    RESOURCES android/AndroidManifest.xml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
@@ -28,6 +32,8 @@ set_target_properties(appTogether PROPERTIES
     WIN32_EXECUTABLE TRUE
 )
 
+set_property(TARGET appTogether APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/android)
+
 target_link_libraries(appTogether
     PRIVATE Qt6::Quick)
 
@@ -35,3 +41,4 @@ include(GNUInstallDirs)
 install(TARGETS appTogether
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+

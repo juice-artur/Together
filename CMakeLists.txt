@@ -19,6 +19,7 @@ qt_add_qml_module(appTogether
     RESOURCES android/AndroidManifest.xml
     RESOURCES android/AndroidManifest.xml
     RESOURCES android/AndroidManifest.xml
+    QML_FILES Components/Card.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

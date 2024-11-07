@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import "Components"
 
 Window {
     width: 640
@@ -22,27 +23,10 @@ Window {
             }
 
             Item {
-                width: swipeView.width
-                height: swipeView.height
-
-                Rectangle {
-                    anchors.centerIn: parent
-                    width: swipeView.width * 0.8
-                    height: swipeView.height * 0.5
-                    color: "#f0f0f0"
-                    radius: 10
-                    border.color: "black"
-
-                    Text {
-                        text: model.questionText
-                        anchors.centerIn: parent
-                        width: parent.width * 0.9
-                        font.pixelSize: 20
-                        color: "black"
-                        wrapMode: Text.WordWrap
-                        verticalAlignment: Text.AlignVCenter
-                    }
-                }
+                Card {
+                     anchors.fill: parent
+                     model: modelData
+                 }
             }
         }
     }
